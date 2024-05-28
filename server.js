@@ -22,7 +22,7 @@ const logger = winston.createLogger({
 
 const pool = new Pool({
   user: 'postgres',
-  host: 'localhost',
+  host: '109.203.223-39.xdsl.ab.ru',
   database: 'smartnote',
   password: '123321',
   port: 5432,
