@@ -28,7 +28,7 @@
     "web-vitals": "^2.1.4",
     "winston": "^3.13.0"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://smartnote-phi.vercel.app",
   "scripts": {
     "start": "concurrently \"node server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
