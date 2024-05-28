@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000/', // Используем относительный путь
+  baseURL: 'https://smartnote-phi.vercel.app/', // Используем относительный путь
   headers: {
     'Content-Type': 'application/json',
   }
