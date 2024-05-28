@@ -1,0 +1,20 @@
+{"email":"oleg123@mail.ru","level":"info","message":"Received registration request","nickname":"Oleg123","service":"user-service","username":"oleg123"}
+{"hashedPassword":"$2b$10$AQv3uRyr5eu6aoyzwrN1XOxEz/wQfnfmyrxf8TKxcUPs6xuwbTBuW","level":"info","message":"Password hashed","service":"user-service"}
+{"level":"info","message":"User inserted into database","result":{"email":"oleg123@mail.ru","id":35,"nickname":"Oleg123","password":"$2b$10$AQv3uRyr5eu6aoyzwrN1XOxEz/wQfnfmyrxf8TKxcUPs6xuwbTBuW","username":"oleg123"},"service":"user-service"}
+{"level":"info","message":"JWT token created","service":"user-service","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM1LCJpYXQiOjE3MTY3ODM3NDIsImV4cCI6MTcxNjc4NzM0Mn0.tnWHJwdndyM4Xm8QQIEAMAm8F9AoNCA5HEGm-ksRxk0"}
+{"email":"oleg22@gmail.com","level":"info","message":"Received registration request","nickname":"Oleg22","service":"user-service","username":"oleg22"}
+{"hashedPassword":"$2b$10$nqWsihzc6Ab9vPSbLVHK/u6ax4FLdiTcHR2ZLLEAttB1B7S8hRGeu","level":"info","message":"Password hashed","service":"user-service"}
+{"level":"info","message":"User inserted into database","result":{"email":"oleg22@gmail.com","id":36,"nickname":"Oleg22","password":"$2b$10$nqWsihzc6Ab9vPSbLVHK/u6ax4FLdiTcHR2ZLLEAttB1B7S8hRGeu","username":"oleg22"},"service":"user-service"}
+{"level":"info","message":"JWT token created","service":"user-service","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM2LCJpYXQiOjE3MTY3ODg5NjAsImV4cCI6MTcxNjc5MjU2MH0.lE9qff241F12EcTmpGOBtB7HkturEV2F3SbgMa-xhME"}
+{"email":"anton@gmail.ru","level":"info","message":"Received registration request","nickname":"Anton","service":"user-service","username":"anton"}
+{"hashedPassword":"$2b$10$Sm0PTbkSWzaA2tLgwMNd2uRLa789/KQ4qNct6p8fT8fYytBN/DloW","level":"info","message":"Password hashed","service":"user-service"}
+{"level":"info","message":"User inserted into database","result":{"email":"anton@gmail.ru","id":37,"nickname":"Anton","password":"$2b$10$Sm0PTbkSWzaA2tLgwMNd2uRLa789/KQ4qNct6p8fT8fYytBN/DloW","username":"anton"},"service":"user-service"}
+{"level":"info","message":"JWT token created","service":"user-service","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM3LCJpYXQiOjE3MTY4MTc3MjUsImV4cCI6MTcxNjgyMTMyNX0.PTp0dlqqshHm2P7Zzx3F9hjh3r5njC0fbiC1jLnv4o0"}
+{"email":"lpzdiamondpro@gmail.com","level":"info","message":"Received registration request","nickname":"WIREX","service":"user-service","username":"Wirex"}
+{"hashedPassword":"$2b$10$RXablazz/xy4PztA7LbDqOBd5NafEYpybeu9nmyJ7iEe/CFSZVItu","level":"info","message":"Password hashed","service":"user-service"}
+{"level":"info","message":"User inserted into database","result":{"email":"lpzdiamondpro@gmail.com","id":38,"nickname":"WIREX","password":"$2b$10$RXablazz/xy4PztA7LbDqOBd5NafEYpybeu9nmyJ7iEe/CFSZVItu","username":"Wirex"},"service":"user-service"}
+{"level":"info","message":"JWT token created","service":"user-service","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM4LCJpYXQiOjE3MTY4NTAxOTksImV4cCI6MTcxNjg1Mzc5OX0.-4-h9ltPQYf9sJWK8vqLWBF6e5OR6_Pb2G5rVge5MXk"}
+{"email":"nikusy30072015@gmail.com","level":"info","message":"Received registration request","nickname":"_Molly_Elish_","service":"user-service","username":"nika"}
+{"hashedPassword":"$2b$10$7oaX6hAvP73X4gBwVi2lj.h35S5pmpXplpMjGewI3pUpBrw3gN/gm","level":"info","message":"Password hashed","service":"user-service"}
+{"level":"info","message":"User inserted into database","result":{"email":"nikusy30072015@gmail.com","id":39,"nickname":"_Molly_Elish_","password":"$2b$10$7oaX6hAvP73X4gBwVi2lj.h35S5pmpXplpMjGewI3pUpBrw3gN/gm","username":"nika"},"service":"user-service"}
+{"level":"info","message":"JWT token created","service":"user-service","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM5LCJpYXQiOjE3MTY4NTA1OTcsImV4cCI6MTcxNjg1NDE5N30.ATKA9j6dMx5SWU2nJgEtOpOXLQaKlmvqN1KIS1flG4U"}

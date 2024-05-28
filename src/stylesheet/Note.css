@@ -1,0 +1,78 @@
+.note-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.note {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 0 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.note-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.note-name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1em;
+}
+
+.note-outside-text {
+  flex: 1;
+  display: flex;
+  align-items: normal;
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+  word-wrap: break-word;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .note, .add-note {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 850px) {
+  .note, .add-note {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 760px) {
+  .note, .add-note {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .note, .add-note {
+    width: 100px;
+    height: 100px;
+  }
+}

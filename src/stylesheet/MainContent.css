@@ -1,0 +1,46 @@
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.note-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.note, .add-note {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px; /* Отступ внутри заметки */
+  cursor: pointer;
+  border-radius: 15px; /* Скругленные края */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+
+.add-note{
+  margin: 20px;
+}
+
+.note-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px; /* Отступ между содержимым и названием */
+}
+
+.note-name {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
