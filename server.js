@@ -21,12 +21,16 @@ const logger = winston.createLogger({
 });
 
 const pool = new Pool({
-  user: 'postgres',
-  host: '109.203.223-39.xdsl.ab.ru',
-  database: 'smartnote',
-  password: '123321',
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT || 5432,
 });
+
+module.exports = {
+  query: (text, params) => pool.query(text, params),
+};
 
 app.use(cors());
 app.use(bodyParser.json());
