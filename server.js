@@ -21,33 +21,35 @@ const logger = winston.createLogger({
 });
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
+  user: process.env.DB_USER || 'postgres',
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.DB_NAME || 'smartnote',
+  password: process.env.DB_PASSWORD || 'password',
   port: process.env.DB_PORT || 5432,
 });
 
-module.exports = {
-  query: (text, params) => pool.query(text, params),
+// Настройка CORS
+const corsOptions = {
+  origin: 'https://smartnote-phi.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.options('*', cors()); // включаем pre-flight запросы для всех маршрутов
+app.options('*', cors(corsOptions)); // включаем pre-flight запросы для всех маршрутов
 
 app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-
 // Настройка Multer для загрузки файлов
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Обработчик загрузки файлов
 app.post('/api/upload', authenticateToken, upload.single('file'), async (req, res) => {
   const file = req.file;
   const userId = req.user.userId;
@@ -69,7 +71,6 @@ app.post('/api/upload', authenticateToken, upload.single('file'), async (req, re
   }
 });
 
-// Получение изображения
 app.get('/api/images/:id', async (req, res) => {
   const imageId = req.params.id;
 
@@ -88,7 +89,6 @@ app.get('/api/images/:id', async (req, res) => {
   }
 });
 
-// Получение профиля пользователя
 app.get('/api/user', authenticateToken, async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM users WHERE id = $1', [req.user.userId]);
@@ -98,7 +98,6 @@ app.get('/api/user', authenticateToken, async (req, res) => {
   }
 });
 
-// Обновление профиля пользователя
 app.put('/api/user', authenticateToken, async (req, res) => {
   const { nickname, username, email } = req.body;
   const userId = req.user.userId;
@@ -118,7 +117,6 @@ app.put('/api/user', authenticateToken, async (req, res) => {
   }
 });
 
-// Регистрация пользователя
 app.post('/api/register', async (req, res) => {
   const { nickname, username, password, email } = req.body;
   try {
@@ -139,7 +137,7 @@ app.post('/api/register', async (req, res) => {
     
     logger.info('User inserted into database', { result: result.rows[0] });
     const user = result.rows[0];
-    const token = jwt.sign({ userId: user.id }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '1h' });
     logger.info('JWT token created', { token });
     
     res.json({ user, token });
@@ -149,7 +147,6 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-// Логин пользователя
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -157,7 +154,7 @@ app.post('/api/login', async (req, res) => {
     if (result.rows.length > 0) {
       const user = result.rows[0];
       if (await bcrypt.compare(password, user.password)) {
-        const token = jwt.sign({ userId: user.id }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '1h' });
         res.json({ token, user });
       } else {
         res.status(400).send('Invalid password');
@@ -171,7 +168,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Получение папок и заметок текущего пользователя
 app.get('/api/folders', authenticateToken, async (req, res) => {
   const userId = req.user.userId;
   try {
@@ -221,7 +217,6 @@ app.put('/api/folders/:id', authenticateToken, async (req, res) => {
   }
 });
 
-// Удаление папки
 app.delete('/api/folders/:id', authenticateToken, async (req, res) => {
   const folderId = req.params.id;
 
@@ -234,7 +229,6 @@ app.delete('/api/folders/:id', authenticateToken, async (req, res) => {
   }
 });
 
-// Создание новой заметки в папке
 app.post('/api/notes', authenticateToken, async (req, res) => {
   const { title, content, folderId } = req.body;
 
@@ -247,32 +241,6 @@ app.post('/api/notes', authenticateToken, async (req, res) => {
   }
 });
 
-// Добавление файла(картинки) в заметку
-app.post('/api/upload', authenticateToken, upload.single('file'), async (req, res) => {
-  const file = req.file;
-  const userId = req.user.userId;
-
-  if (!file) {
-    return res.status(400).send('No file uploaded.');
-  }
-
-  const params = {
-    Bucket: process.env.S3_BUCKET,
-    Key: `${userId}/${Date.now()}_${file.originalname}`,
-    Body: file.buffer,
-    ContentType: file.mimetype,
-  };
-
-  try {
-    const data = await s3.upload(params).promise();
-    res.json({ url: data.Location });
-  } catch (error) {
-    console.error('Error uploading file:', error);
-    res.status(500).send('Error uploading file');
-  }
-});
-
-// Обновление заметки
 app.put('/api/notes/:id', authenticateToken, async (req, res) => {
   const { title, content } = req.body;
   const noteId = req.params.id;
@@ -286,7 +254,6 @@ app.put('/api/notes/:id', authenticateToken, async (req, res) => {
   }
 });
 
-// Удаление заметки
 app.delete('/api/notes/:id', authenticateToken, async (req, res) => {
   const noteId = req.params.id;
 
