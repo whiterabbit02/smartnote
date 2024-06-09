@@ -15,7 +15,7 @@ const RegisterPage = ({ onRegister, onGoBack }) => {
       return;
     }
 
-    axios.post('http://localhost:5000/api/register', { nickname, username, password, email })
+    axios.post('https://smartnote-phi.vercel.app:5000/api/register', { nickname, username, password, email })
       .then(response => {
         onRegister(response.data.user, response.data.token);
       })
