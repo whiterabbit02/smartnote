@@ -8,7 +8,7 @@ const LoginPage = ({ onLogin, onGoToRegister }) => {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    axios.post('http://localhost:5000/api/login', { username, password })
+    axios.post('http://185.173.94.160:5000/api/login', { username, password })
       .then(response => {
         onLogin(response.data.user, response.data.token);
       })
