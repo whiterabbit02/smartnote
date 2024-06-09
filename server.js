@@ -21,10 +21,10 @@ const logger = winston.createLogger({
 });
 
 const pool = new Pool({
-  user: process.env.DB_USER || 'modestra',
-  host: process.env.DB_HOST || '185.173.94.160',
+  user: process.env.DB_USER || 'postgres',
+  host: process.env.DB_HOST || 'ep-bold-pine-a4y0h4wd-pooler.us-east-1.aws.neon.tech',
   database: process.env.DB_NAME || 'smartnote',
-  password: process.env.DB_PASSWORD || 'terrarik22',
+  password: process.env.DB_PASSWORD || '123123890olkAa',
   port: process.env.DB_PORT || 5432,
 });
 
