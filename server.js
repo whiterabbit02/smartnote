@@ -24,11 +24,11 @@ const logger = winston.createLogger({
 });
 
 const pool = new Pool({
-  user: process.env.PGUSER,
-  host: process.env.PGHOST,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
+  user: 'postgres',
+  host: 'ep-bold-pine-a4y0h4wd-pooler.us-east-1.aws.neon.tech',
+  database: 'smartnote',
+  password: '123123890olkAa',
+  port: 5432,
 });
 
 app.use(cors());
