@@ -15,7 +15,7 @@ const RegisterPage = ({ onRegister, onGoBack }) => {
       return;
     }
 
-    axios.post('https://smartnote-phi.vercel.app:5000/api/register', { nickname, username, password, email })
+    axios.post('ep-bold-pine-a4y0h4wd-pooler.us-east-1.aws.neon.tech/api/register', { nickname, username, password, email })
       .then(response => {
         onRegister(response.data.user, response.data.token);
       })
