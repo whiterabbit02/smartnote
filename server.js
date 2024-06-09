@@ -30,7 +30,7 @@ const pool = new Pool({
 
 // Настройка CORS
 const corsOptions = {
-  origin: 'https://smartnote-phi.vercel.app',
+  origin: 'http://185.173.94.160',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
